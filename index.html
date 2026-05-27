@@ -1,31 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Database Store</title>
-
-<style>
-.slider {
-  height: 40px;
-  overflow: hidden;
-  color: #22c55e;
-  font-weight: bold;
-}
-
-.slider p {
-  animation: slide 8s infinite;
-  margin: 0;
-}
-
-@keyframes slide {
-  0% {margin-top: 0;}
-  25% {margin-top: -40px;}
-  50% {margin-top: -80px;}
-  75% {margin-top: -120px;}
-  100% {margin-top: 0;}
-}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Database Store</title>
 
 <style>
 body {
@@ -36,9 +14,7 @@ body {
   text-align: center;
 }
 
-.container {
-  padding: 50px 20px;
-}
+/* FRAME */
 .frame {
   margin: 20px;
   padding: 20px;
@@ -49,16 +25,48 @@ body {
     inset 0 0 15px rgba(0,0,0,0.5);
   background: linear-gradient(145deg, #1e293b, #0f172a);
 }
-h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
+
+/* CONTAINER */
+.container {
+  padding: 40px 20px;
 }
 
+/* TITLE */
+h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* SLIDER */
+.slider {
+  height: 60px;
+  overflow: hidden;
+  color: #22c55e;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.slider p {
+  animation: slide 10s infinite;
+  margin: 0;
+}
+
+@keyframes slide {
+  0% {margin-top: 0;}
+  25% {margin-top: -60px;}
+  50% {margin-top: -120px;}
+  75% {margin-top: -180px;}
+  100% {margin-top: 0;}
+}
+
+/* TEXT */
 p {
   font-size: 18px;
   color: #cbd5f5;
 }
 
+/* BUTTON */
 .btn {
   display: block;
   margin: 15px auto;
@@ -69,33 +77,42 @@ p {
   font-size: 18px;
   color: white;
   background: #2563eb;
+  transition: 0.3s;
 }
 
 .btn:hover {
-  background: #1d4ed8;
+  background: #22c55e;
+  transform: scale(1.05);
 }
 </style>
 
 </head>
+
 <body>
-  <div class="container">
-    <h1>Databasestore</h1>
 
-    <div class="slider">
-      <p>Professional TV Mounting</p>
-      <p>Expert Furniture Assembly</p>
-      <p>Fast & Clean Work</p>
-      <p>Trusted Service</p>
-    </div>
+<div class="frame">
+<div class="container">
 
-    <p>TV Mounting • Furniture Assembly • General Mounting • Home Services</p>
+<h1>Databasestore</h1>
 
-    <a class="btn" href="tel:+12052018096">Call Me</a>
-    <a class="btn" href="https://wa.me/17065817415">WhatsApp</a>
-    
-    <a class="btn" href="portfolio.html">View My Work</a>
-    <a class="btn" href="https://biz.yelp.com/biz_info/FEl_QlZjSqA6QgZeCGW0xA">View Reviews</a>
+<!-- SLIDER (صار واضح ومكانه صح) -->
+<div class="slider">
+  <p>Professional TV Mounting</p>
+  <p>Expert Furniture Assembly</p>
+  <p>Fast & Clean Work</p>
+  <p>Trusted Service</p>
+</div>
 
-  </div>
+<p>TV Mounting • Furniture Assembly • General Mounting • Home Services</p>
+
+<a class="btn" href="tel:+12052018096">Call Me</a>
+<a class="btn" href="https://wa.me/17065817415">WhatsApp</a>
+
+<a class="btn" href="portfolio.html">View My Work</a>
+<a class="btn" href="https://www.yelp.com/biz/YOUR-BUSINESS">⭐ Check My Yelp Reviews</a>
+
+</div>
+</div>
+
 </body>
 </html>
