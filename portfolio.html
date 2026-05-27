@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Work</title>
 
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+
+.popup img {
+  max-width: 90%;
+  margin-top: 5%;
+}
+</style>
+</head>
+
+<body>
+
+<h1>My Work</h1>
+
+<div class="gallery">
+
+<h2>TV Mounting</h2>
+<img src="tv28.jpg" onclick="openImg(this)">
+<img src="tv29.jpg" onclick="openImg(this)">
+
+<h2>Furniture Assembly</h2>
+<img src="f1.jpg" onclick="openImg(this)">
+<img src="f2.jpg" onclick="openImg(this)">
+
+</div>
+
+<div class="popup" id="popup" onclick="closeImg()">
+  <img id="popup-img">
+</div>
+
+<script>
+function openImg(img){
+  document.getElementById("popup").style.display = "block";
+  document.getElementById("popup-img").src = img.src;
+}
+
+function closeImg(){
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
