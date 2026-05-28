@@ -1,184 +1,266 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Databasestore - خدمات منزلية موثوقة</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Adams TV Mounting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0c0f16;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #060913;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            color: #fff;
-        }
-
-        /* حاوية الموقع الرئيسية مع الإطار الذهبي */
-        .site-container {
-            max-width: 400px;
-            width: 90%;
-            border: 8px solid;
-            border-image: linear-gradient(to bottom right, #a1703e, #d4a76c 50%, #a1703e) 1;
-            background-color: #121822;
             padding: 20px;
-            border-radius: 15px; /* تم تدوير الحواف للإطار بناءً على الصورة */
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            box-sizing: border-box;
         }
 
-        .content-area {
+        /* الإطار الخشبي الفخم الخارجي */
+        .wooden-frame {
+            position: relative;
+            max-width: 430px;
+            width: 100%;
+            background: linear-gradient(135deg, #4a2f13 0%, #784c1f 25%, #2d1a08 50%, #784c1f 75%, #4a2f13 100%);
+            padding: 18px; /* سمك الإطار الخشبي */
+            border-radius: 24px;
+            box-shadow: 
+                inset 0 0 15px rgba(0,0,0,0.8),
+                0 20px 40px rgba(0,0,0,0.7);
+        }
+
+        /* محاكاة زوايا الإضاءة والبراغي المعدنية في الأركان */
+        .wooden-frame::before, .wooden-frame::after {
+            content: '';
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle, #bfa37a 20%, #61401b 70%, #211406 100%);
+            border-radius: 50%;
+            border: 2px solid #3d240c;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+            z-index: 5;
+        }
+        /* الركن العلوي الأيسر */
+        .wooden-frame::before { top: 8px; left: 8px; }
+        /* الركن العلوي الأيمن */
+        .wooden-frame::after { top: 8px; right: 8px; }
+
+        /* الشق الداخلي الداكن المائل ليعطي عمق للإطار البارز */
+        .inner-bevel {
+            background-color: #0d1624;
+            border-radius: 12px;
+            padding: 6px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
+        }
+
+        /* الخلفية الزرقاء الداكنة العميقة مع تأثير الإضاءة الفنية (Vignette) */
+        .screen-content {
+            background: radial-gradient(circle at center, #112136 0%, #080f1a 100%);
+            border-radius: 8px;
+            padding: 40px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
         }
 
-        .site-title {
-            font-size: 30px;
-            font-weight: bold;
-            margin-top: 20px;
-            margin-bottom: 15px;
+        /* الاسم الرئيسي للموقع باللون الأبيض الناصع */
+        .main-title {
             color: #ffffff;
-        }
-
-        .service-list {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 25px;
-        }
-
-        .service-list li {
-            font-size: 16px;
-            color: #58b76e; /* اللون الأخضر للخدمات */
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-top: 10px;
             margin-bottom: 5px;
         }
 
-        /* فاصل رفيع تحت الخدمات */
-        .service-list:after {
-            content: '';
-            display: block;
-            width: 150px;
+        /* تأثير خط التوهج الأخضر المشع (العلوي والسفلي) */
+        .glow-divider {
+            width: 80%;
             height: 1px;
-            background-color: rgba(255,255,255,0.1);
-            margin: 15px auto 0;
+            background: linear-gradient(90deg, transparent, #39d353, transparent);
+            position: relative;
+            margin: 15px 0;
+        }
+        .glow-divider::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 5px;
+            background-color: #5cf577;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #39d353, 0 0 20px #39d353;
         }
 
-        .button-group {
+        /* قائمة الخدمات الخضراء المتوهجة */
+        .features-list {
+            list-style: none;
+            width: 100%;
+            margin: 5px 0;
+        }
+        .features-list li {
+            color: #4ade80; /* لون أخضر نيون هادئ */
+            font-size: 18px;
+            font-weight: 600;
+            margin: 12px 0;
+            text-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+        }
+
+        /* السطر الفرعي الصغير الممتد بشكل أفقي */
+        .sub-services {
+            color: #8da2bb;
+            font-size: 11px;
+            word-spacing: 2px;
+            margin: 15px 0 35px 0;
+            opacity: 0.9;
+        }
+
+        /* حاوية الأزرار التفاعلية */
+        .buttons-container {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
         }
 
-        /* تنسيق الأزرار الأساسي */
-        .action-button {
+        /* التصميم الموحد والبارز للأزرار ثلاثية الأبعاد */
+        .btn {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 15px 0;
-            border-radius: 8px;
+            padding: 16px;
+            border-radius: 10px;
             text-decoration: none;
-            color: #fff;
-            font-weight: bold;
+            color: #ffffff;
             font-size: 18px;
-            transition: opacity 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            border: none;
-            cursor: pointer;
-        }
-
-        .action-button:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        .action-button i {
-            margin-left: 10px; /* المسافة بين الأيقونة والنص */
-            font-size: 22px;
-        }
-
-        /* ألوان الأزرار المخصصة */
-        .btn-call {
-            background-color: #3b82f6; /* أزرق فاتح */
-        }
-
-        .btn-whatsapp {
-            background-color: #22c55e; /* أخضر */
-        }
-
-        .btn-work {
-            background-color: #3b82f6; /* نفس أزرق الاتصال */
-        }
-
-        .btn-yelp {
-            background-color: #ef4444; /* أحمر */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-weight: 600;
             position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.2),
+                0 4px 8px rgba(0,0,0,0.4);
         }
 
-        /* تنسيق خاص لأيقونة Yelp والنجوم */
-        .btn-yelp .yelp-icon {
-            color: #fff;
-            font-size: 24px;
-            margin-right: 5px;
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
 
-        .btn-yelp .yelp-stars {
-            color: #fbbf24; /* لون النجوم الذهبي */
+        .btn i {
+            font-size: 20px;
+            position: absolute;
+            left: 24px; /* تثبيت الأيقونات على اليسار بدقة كما في الصورة */
+        }
+
+        /* زر الإتصال الأزرق */
+        .btn-call {
+            background: linear-gradient(to bottom, #1e5fcb, #113f94);
+            border: 1px solid #0f357a;
+        }
+
+        /* زر الواتساب الأخضر */
+        .btn-whatsapp {
+            background: linear-gradient(to bottom, #2da94f, #1b7433);
+            border: 1px solid #165e29;
+        }
+
+        /* زر معرض الأعمال الأزرق الفاتح قريباً من الإتصال */
+        .btn-work {
+            background: linear-gradient(to bottom, #1d63d3, #124499);
+            border: 1px solid #0f3a82;
+        }
+
+        /* زر تقييمات Yelp الأحمر العريض */
+        .btn-yelp {
+            background: linear-gradient(to bottom, #bf2424, #851313);
+            border: 1px solid #6e0f0f;
+            padding-left: 45px; /* إزاحة إضافية لتفادي تداخل النجوم */
+        }
+        
+        /* أيقونة يلب والنجوم المدمجة جهة اليسار */
+        .yelp-meta {
+            position: absolute;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .yelp-meta i.fa-yelp {
+            position: static;
+            font-size: 18px;
+        }
+        .yelp-meta i.fa-star {
+            position: static;
             font-size: 14px;
-            margin-right: 5px;
+            color: #ffb800; /* اللون الذهبي اللامع للنجمة */
         }
     </style>
 </head>
 <body>
-    <div class="site-container">
-        <div class="content-area">
-            <h1 class="site-title">Databasestore</h1>
-            
-            <ul class="service-list">
-                <li>Professional TV Mounting</li>
-                <li>Expert Furniture Assembly</li>
-                <li>Fast & Clean Work</li>
-                <li>Trusted Service</li>
-            </ul>
 
-            <div class="button-group">
-                <a href="tel:+123456789" class="action-button btn-call">
-                    <i class="fas fa-phone"></i>
-                    Call Me
-                </a>
+    <div class="wooden-frame">
+        <div class="inner-bevel">
+            <div class="screen-content">
                 
-                <a href="https://wa.me/123456789" class="action-button btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    WhatsApp
-                </a>
+                <h1 class="main-title">Databasestore</h1>
                 
-                <a href="#work" class="action-button btn-work">
-                    <i class="fas fa-images"></i>
-                    View My Work
-                </a>
+                <div class="glow-divider"></div>
                 
-                <a href="#yelp" class="action-button btn-yelp">
-                    <i class="fab fa-yelp yelp-icon"></i>
-                    <span class="yelp-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </span>
-                    Check My Yelp Reviews
-                </a>
+                <ul class="features-list">
+                    <li>Professional TV Mounting</li>
+                    <li>Expert Furniture Assembly</li>
+                    <li>Fast & Clean Work</li>
+                    <li>Trusted Service</li>
+                </ul>
+                
+                <div class="glow-divider"></div>
+                
+                <p class="sub-services">TV Mounting • Furniture Assembly • General Mounting • Home Services</p>
+                
+                <div class="buttons-container">
+                    
+                    <a href="tel:+123456789" class="btn btn-call">
+                        <i class="fa-solid fa-phone"></i>
+                        Call Me
+                    </a>
+                    
+                    <a href="https://wa.me/123456789" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    
+                    <a href="#" class="btn btn-work">
+                        <i class="fa-regular fa-image"></i>
+                        View My Work
+                    </a>
+                    
+                    <a href="#" class="btn btn-yelp">
+                        <div class="yelp-meta">
+                            <i class="fa-brands fa-yelp"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        Check My Yelp Reviews
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
     </div>
+
 </body>
 </html>
