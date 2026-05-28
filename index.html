@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adams TV Mounting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Databasestore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -12,186 +12,187 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
+        /* 1. خلفية صيفية فرايحية (تدرج بين السماء الصافية وشمس الصيف الدافئة) */
         body {
-            background-color: #060913;
+            background: linear-gradient(135deg, #e0f2fe 0%, #fef08a 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-        }
-
-        /* الإطار الخشبي الفخم الخارجي */
-        .wooden-frame {
             position: relative;
-            max-width: 430px;
-            width: 100%;
-            background: linear-gradient(135deg, #4a2f13 0%, #784c1f 25%, #2d1a08 50%, #784c1f 75%, #4a2f13 100%);
-            padding: 18px; /* سمك الإطار الخشبي */
-            border-radius: 24px;
-            box-shadow: 
-                inset 0 0 15px rgba(0,0,0,0.8),
-                0 20px 40px rgba(0,0,0,0.7);
+            overflow-x: hidden;
         }
 
-        /* محاكاة زوايا الإضاءة والبراغي المعدنية في الأركان */
-        .wooden-frame::before, .wooden-frame::after {
-            content: '';
+        /* نقوش هندسية صيفية ناعمة في الخلفية لإعطاء حيوية وعمق للموقع */
+        body::before {
+            content: "";
             position: absolute;
-            width: 35px;
-            height: 35px;
-            background: radial-gradient(circle, #bfa37a 20%, #61401b 70%, #211406 100%);
-            border-radius: 50%;
-            border: 2px solid #3d240c;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
-            z-index: 5;
-        }
-        /* الركن العلوي الأيسر */
-        .wooden-frame::before { top: 8px; left: 8px; }
-        /* الركن العلوي الأيمن */
-        .wooden-frame::after { top: 8px; right: 8px; }
-
-        /* الشق الداخلي الداكن المائل ليعطي عمق للإطار البارز */
-        .inner-bevel {
-            background-color: #0d1624;
-            border-radius: 12px;
-            padding: 6px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: radial-gradient(#38bdf8 0.8px, transparent 0.8px), radial-gradient(#facc15 0.8px, #e0f2fe 0.8px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.15;
+            z-index: 0;
         }
 
-        /* الخلفية الزرقاء الداكنة العميقة مع تأثير الإضاءة الفنية (Vignette) */
-        .screen-content {
-            background: radial-gradient(circle at center, #112136 0%, #080f1a 100%);
-            border-radius: 8px;
+        /* 2. إطار زجاجي مودرن (Glassmorphic) بديل للخشبي العتيم */
+        .main-card {
+            position: relative;
+            z-index: 1;
+            max-width: 420px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 30px;
             padding: 40px 24px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.05),
+                inset 0 0 20px rgba(255, 255, 255, 0.3);
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+            /* حركة دخول أنيقة للكارت عند فتح الموقع */
+            animation: cardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* الاسم الرئيسي للموقع باللون الأبيض الناصع */
+        /* 3. الاسم الرئيسي للموقع مع تدرج لوني صيفي مبهج */
         .main-title {
-            color: #ffffff;
-            font-size: 38px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-top: 10px;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
         }
 
-        /* تأثير خط التوهج الأخضر المشع (العلوي والسفلي) */
+        /* خط التوهج الصيفي المشع والمتحرك */
         .glow-divider {
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #39d353, transparent);
-            position: relative;
-            margin: 15px 0;
-        }
-        .glow-divider::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 5px;
-            background-color: #5cf577;
+            width: 70%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #22c55e, #eab308, transparent);
+            margin: 20px 0;
             border-radius: 50%;
-            box-shadow: 0 0 12px #39d353, 0 0 20px #39d353;
+            position: relative;
         }
 
-        /* قائمة الخدمات الخضراء المتوهجة */
+        /* 4. قائمة الخدمات باللون الأخضر الربيعي المنعش */
         .features-list {
             list-style: none;
             width: 100%;
             margin: 5px 0;
         }
         .features-list li {
-            color: #4ade80; /* لون أخضر نيون هادئ */
-            font-size: 18px;
-            font-weight: 600;
+            color: #15803d; /* أخضر عشبي غني واضح وقابل للقراءة */
+            font-size: 19px;
+            font-weight: 700;
             margin: 12px 0;
-            text-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            /* حركة ظهور ناعمة للنصوص */
+            animation: fadeInText 1.2s ease forwards;
+            opacity: 0;
+        }
+        /* إضافة نقطة حية بجانب الخدمات */
+        .features-list li::before {
+            content: "✦";
+            color: #eab308; /* نجمة ذهبية صغيرة */
         }
 
-        /* السطر الفرعي الصغير الممتد بشكل أفقي */
+        /* سطر الخدمات الأفقي الصغير والمودرن */
         .sub-services {
-            color: #8da2bb;
-            font-size: 11px;
-            word-spacing: 2px;
-            margin: 15px 0 35px 0;
-            opacity: 0.9;
+            color: #475569;
+            font-size: 12px;
+            font-weight: 600;
+            word-spacing: 1px;
+            margin: 10px 0 30px 0;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* حاوية الأزرار التفاعلية */
         .buttons-container {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
         }
 
-        /* التصميم الموحد والبارز للأزرار ثلاثية الأبعاد */
+        /* 5. تصميم الأزرار التفاعلية ثلاثية الأبعاد والأنيقة */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
             padding: 16px;
-            border-radius: 10px;
+            border-radius: 16px;
             text-decoration: none;
             color: #ffffff;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 700;
             position: relative;
-            transition: all 0.2s ease;
-            box-shadow: 
-                inset 0 1px 0 rgba(255,255,255,0.2),
-                0 4px 8px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: none;
+            overflow: hidden;
         }
 
-        .btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        /* تأثير اللمعان السريع (Shine) يمر على الزر كل فترة لجذب العين */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -50%;
+            width: 30%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-30deg);
+            animation: shineEffect 4s infinite linear;
+        }
+
+        /* تأثير وقوف الماوس (Hover) */
+        .btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
         .btn i {
             font-size: 20px;
             position: absolute;
-            left: 24px; /* تثبيت الأيقونات على اليسار بدقة كما في الصورة */
+            left: 24px;
         }
 
-        /* زر الإتصال الأزرق */
+        /* ألوان الأزرار الصيفية الواضحة */
         .btn-call {
-            background: linear-gradient(to bottom, #1e5fcb, #113f94);
-            border: 1px solid #0f357a;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); /* أزرق ملكي قوي */
+            /* حركة النبض الذكية لزر الاتصال لجذب الزبون فوراً */
+            animation: pulseButton 2s infinite;
         }
 
-        /* زر الواتساب الأخضر */
         .btn-whatsapp {
-            background: linear-gradient(to bottom, #2da94f, #1b7433);
-            border: 1px solid #165e29;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); /* أخضر حيوي */
         }
 
-        /* زر معرض الأعمال الأزرق الفاتح قريباً من الإتصال */
         .btn-work {
-            background: linear-gradient(to bottom, #1d63d3, #124499);
-            border: 1px solid #0f3a82;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); /* أزرق سماوي عميق */
         }
 
-        /* زر تقييمات Yelp الأحمر العريض */
         .btn-yelp {
-            background: linear-gradient(to bottom, #bf2424, #851313);
-            border: 1px solid #6e0f0f;
-            padding-left: 45px; /* إزاحة إضافية لتفادي تداخل النجوم */
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); /* أحمر بارز */
+            padding-left: 45px;
         }
         
-        /* أيقونة يلب والنجوم المدمجة جهة اليسار */
         .yelp-meta {
             position: absolute;
             left: 20px;
@@ -199,67 +200,94 @@
             align-items: center;
             gap: 6px;
         }
-        .yelp-meta i.fa-yelp {
-            position: static;
-            font-size: 18px;
+        .yelp-meta i.fa-yelp { position: static; font-size: 18px; }
+        .yelp-meta i.fa-star { position: static; font-size: 14px; color: #facc15; }
+
+        /* --- الأنميشن والحركات الذكية (Animations) --- */
+        
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
-        .yelp-meta i.fa-star {
-            position: static;
-            font-size: 14px;
-            color: #ffb800; /* اللون الذهبي اللامع للنجمة */
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
+
+        /* حركة النبض المخصصة لأزرار التواصل (Call & WhatsApp) */
+        @keyframes pulseButton {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+
+        /* تأثير اللمعان المتحرك الفاخر على الأزرار */
+        @keyframes shineEffect {
+            0% { left: -50%; }
+            10% { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        /* تأخير ظهور النصوص لتعطي تأثيراً متتابعاً فخماً */
+        .features-list li:nth-child(1) { animation-delay: 0.3s; }
+        .features-list li:nth-child(2) { animation-delay: 0.5s; }
+        .features-list li:nth-child(3) { animation-delay: 0.7s; }
+        .features-list li:nth-child(4) { animation-delay: 0.9s; }
     </style>
 </head>
 <body>
 
-    <div class="wooden-frame">
-        <div class="inner-bevel">
-            <div class="screen-content">
-                
-                <h1 class="main-title">Databasestore</h1>
-                
-                <div class="glow-divider"></div>
-                
-                <ul class="features-list">
-                    <li>Professional TV Mounting</li>
-                    <li>Expert Furniture Assembly</li>
-                    <li>Fast & Clean Work</li>
-                    <li>Trusted Service</li>
-                </ul>
-                
-                <div class="glow-divider"></div>
-                
-                <p class="sub-services">TV Mounting • Furniture Assembly • General Mounting • Home Services</p>
-                
-                <div class="buttons-container">
-                    
-                    <a href="tel:+123456789" class="btn btn-call">
-                        <i class="fa-solid fa-phone"></i>
-                        Call Me
-                    </a>
-                    
-                    <a href="https://wa.me/123456789" class="btn btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        WhatsApp
-                    </a>
-                    
-                    <a href="#" class="btn btn-work">
-                        <i class="fa-regular fa-image"></i>
-                        View My Work
-                    </a>
-                    
-                    <a href="#" class="btn btn-yelp">
-                        <div class="yelp-meta">
-                            <i class="fa-brands fa-yelp"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        Check My Yelp Reviews
-                    </a>
-                    
+    <div class="main-card">
+        
+        <h1 class="main-title">Databasestore</h1>
+        
+        <div class="glow-divider"></div>
+        
+        <ul class="features-list">
+            <li>Professional TV Mounting</li>
+            <li>Expert Furniture Assembly</li>
+            <li>Fast & Clean Work</li>
+            <li>Trusted Service</li>
+        </ul>
+        
+        <div class="glow-divider"></div>
+        
+        <p class="sub-services">TV Mounting • Furniture Assembly • General Mounting • Home Services</p>
+        
+        <div class="buttons-container">
+            
+            <a href="tel:+123456789" class="btn btn-call">
+                <i class="fa-solid fa-phone"></i>
+                Call Me
+            </a>
+            
+            <a href="https://wa.me/123456789" class="btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                WhatsApp
+            </a>
+            
+            <a href="#" class="btn btn-work">
+                <i class="fa-regular fa-image"></i>
+                View My Work
+            </a>
+            
+            <a href="#" class="btn btn-yelp">
+                <div class="yelp-meta">
+                    <i class="fa-brands fa-yelp"></i>
+                    <i class="fa-solid fa-star"></i>
                 </div>
-                
-            </div>
+                Check My Yelp Reviews
+            </a>
+            
         </div>
+        
     </div>
 
 </body>
