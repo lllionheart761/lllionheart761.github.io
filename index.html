@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam's Pro Mount</title>
+    <title>Adam's Pro Mounting & Assembly</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -15,7 +15,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* 1. خلفية صيفية فرايحية (تدرج بين السماء الصافية وشمس الصيف الدافئة) */
         body {
             background: linear-gradient(135deg, #e0f2fe 0%, #fef08a 100%);
             display: flex;
@@ -27,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* نقوش هندسية صيفية ناعمة في الخلفية لإعطاء حيوية وعمق للموقع */
         body::before {
             content: "";
             position: absolute;
@@ -42,7 +40,6 @@
             z-index: 0;
         }
 
-        /* 2. إطار زجاجي مودرن (Glassmorphic) بديل للخشبي العتيم */
         .main-card {
             position: relative;
             z-index: 1;
@@ -54,46 +51,40 @@
             border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 30px;
             padding: 40px 24px;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.05),
-                inset 0 0 20px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.3);
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* حركة دخول أنيقة للكارت عند فتح الموقع */
             animation: cardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* 3. الاسم الرئيسي للموقع مع تدرج لوني صيفي مبهج */
         .main-title {
-            font-size: 42px;
+            font-size: 34px;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
+            line-height: 1.2;
         }
 
-        /* خط التوهج الصيفي المشع والمتحرك */
         .glow-divider {
             width: 70%;
             height: 3px;
             background: linear-gradient(90deg, transparent, #22c55e, #eab308, transparent);
             margin: 20px 0;
             border-radius: 50%;
-            position: relative;
         }
 
-        /* 4. قائمة الخدمات باللون الأخضر الربيعي المنعش */
         .features-list {
             list-style: none;
             width: 100%;
             margin: 5px 0;
         }
         .features-list li {
-            color: #15803d; /* أخضر عشبي غني واضح وقابل للقراءة */
+            color: #15803d; 
             font-size: 19px;
             font-weight: 700;
             margin: 12px 0;
@@ -101,37 +92,34 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            /* حركة ظهور ناعمة للنصوص */
             animation: fadeInText 1.2s ease forwards;
             opacity: 0;
         }
-        /* إضافة نقطة حية بجانب الخدمات */
         .features-list li::before {
             content: "✦";
-            color: #eab308; /* نجمة ذهبية صغيرة */
+            color: #eab308; 
         }
 
-        /* سطر الخدمات الأفقي الصغير والمودرن */
         .sub-services {
             color: #475569;
             font-size: 12px;
             font-weight: 600;
             word-spacing: 1px;
-            margin: 10px 0 30px 0;
+            margin: 10px 0 25px 0;
             background: rgba(255, 255, 255, 0.5);
             padding: 6px 12px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
+        /* حاوية الأزرار التفاعلية الجديدة للرسائل والمعرض */
         .buttons-container {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 16px;
         }
 
-        /* 5. تصميم الأزرار التفاعلية ثلاثية الأبعاد والأنيقة */
         .btn {
             display: flex;
             align-items: center;
@@ -150,7 +138,6 @@
             overflow: hidden;
         }
 
-        /* تأثير اللمعان السريع (Shine) يمر على الزر كل فترة لجذب العين */
         .btn::after {
             content: '';
             position: absolute;
@@ -161,7 +148,6 @@
             animation: shineEffect 4s infinite linear;
         }
 
-        /* تأثير وقوف الماوس (Hover) */
         .btn:hover {
             transform: translateY(-4px) scale(1.02);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
@@ -173,23 +159,27 @@
             left: 24px;
         }
 
-        /* ألوان الأزرار الصيفية الواضحة */
-        .btn-call {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); /* أزرق ملكي قوي */
-            /* حركة النبض الذكية لزر الاتصال لجذب الزبون فوراً */
+        /* زر التكست مسج (SMS) باللون الأزرق الملكي وينبض تلقائياً */
+        .btn-text {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); 
             animation: pulseButton 2s infinite;
         }
 
+        /* زر الواتساب الأخضر اللامع وينبض تلقائياً بشكل متبادل */
         .btn-whatsapp {
-            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); /* أخضر حيوي */
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); 
+            animation: pulseButton 2s infinite;
+            animation-delay: 1s;
         }
 
+        /* زر معرض الأعمال باللون الأزرق السماوي المشرق */
         .btn-work {
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); /* أزرق سماوي عميق */
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
         }
 
+        /* زر تقييمات Yelp الأحمر */
         .btn-yelp {
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); /* أحمر بارز */
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); 
             padding-left: 45px;
         }
         
@@ -203,17 +193,19 @@
         .yelp-meta i.fa-yelp { position: static; font-size: 18px; }
         .yelp-meta i.fa-star { position: static; font-size: 14px; color: #facc15; }
 
-        /* --- الأنميشن والحركات الذكية (Animations) --- */
-        
+        /* سطر التنبيه والملاحظة بخصوص المراسلة فقط */
+        .notice-text {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 600;
+            margin-top: -8px;
+            margin-bottom: 5px;
+        }
+
+        /* حركات الأنميشن */
         @keyframes cardEntrance {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         @keyframes fadeInText {
@@ -221,32 +213,29 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* حركة النبض المخصصة لأزرار التواصل (Call & WhatsApp) */
         @keyframes pulseButton {
-            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(22, 163, 74, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
         }
 
-        /* تأثير اللمعان المتحرك الفاخر على الأزرار */
         @keyframes shineEffect {
             0% { left: -50%; }
             10% { left: 120%; }
             100% { left: 120%; }
         }
 
-        /* تأخير ظهور النصوص لتعطي تأثيراً متتابعاً فخماً */
-        .features-list li:nth-child(1) { animation-delay: 0.3s; }
-        .features-list li:nth-child(2) { animation-delay: 0.5s; }
-        .features-list li:nth-child(3) { animation-delay: 0.7s; }
-        .features-list li:nth-child(4) { animation-delay: 0.9s; }
+        .features-list li:nth-child(1) { animation-delay: 0.2s; }
+        .features-list li:nth-child(2) { animation-delay: 0.4s; }
+        .features-list li:nth-child(3) { animation-delay: 0.6s; }
+        .features-list li:nth-child(4) { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
 
     <div class="main-card">
         
-        <h1 class="main-title">Databasestore</h1>
+        <h1 class="main-title">Adam's Pro Mounting<br>& Assembly</h1>
         
         <div class="glow-divider"></div>
         
@@ -263,17 +252,19 @@
         
         <div class="buttons-container">
             
-            <a href="tel:+2052018096" class="btn btn-call">
-                <i class="fa-solid fa-phone"></i>
-                Call Me
+            <a href="sms:+1234567890?body=Hi Adam, I'd like a quote.%0A-%20Job%20Type%20(TV%20Mount%20/%20Assembly):%0A-%20TV%20Size%20%26%20Wall%20Type:%0A-%20Number%20of%20Items:%0A-%20My%20Zip%20Code:" class="btn btn-text">
+                <i class="fa-solid fa-comment-sms"></i>
+                Text Me for Quote
             </a>
             
-            <a href="https://wa.me/123456789" class="btn btn-whatsapp">
+            <a href="https://wa.me/1234567890?text=Hi%20Adam,%20I'd%20like%20a%20quote.%0A-%20Job%20Type%20(TV%20Mount%20/%20Assembly):%0A-%20TV%20Size%20%26%20Wall%20Type:%0A-%20Number%20of%20Items:%0A-%20My%20Zip%20Code:" class="btn btn-whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
-                WhatsApp
+                WhatsApp Me
             </a>
             
-            <a href="#" class="btn btn-work">
+            <p class="notice-text">💬 Message Only • We'll reply as soon as possible</p>
+            
+            <a href="portfolio.html" class="btn btn-work">
                 <i class="fa-regular fa-image"></i>
                 View My Work
             </a>
