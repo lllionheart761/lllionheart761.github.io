@@ -1,140 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Databasestore</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databasestore - خدمات منزلية موثوقة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0c0f16;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: white;
-  text-align: center;
-}
+        /* حاوية الموقع الرئيسية مع الإطار الذهبي */
+        .site-container {
+            max-width: 400px;
+            width: 90%;
+            border: 8px solid;
+            border-image: linear-gradient(to bottom right, #a1703e, #d4a76c 50%, #a1703e) 1;
+            background-color: #121822;
+            padding: 20px;
+            border-radius: 15px; /* تم تدوير الحواف للإطار بناءً على الصورة */
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+        }
 
-/* FRAME */
-.frame {
-  border: 6px solid #8b5e34;
-  border-radius: 20px;
-  margin: 20px;
-  padding: 30px;
-  box-shadow: 0 0 30px rgba(255, 200, 120, 0.4);
-}
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-/* CONTAINER */
-.container {
-  max-width: 500px;
-  margin: auto;
-}
+        .site-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
 
-/* TITLE */
-h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
+        .service-list {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
 
-/* SLIDER */
-.slider {
-  height: 40px;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 20px;
-}
+        .service-list li {
+            font-size: 16px;
+            color: #58b76e; /* اللون الأخضر للخدمات */
+            margin-bottom: 5px;
+        }
 
-.slider-track {
-  display: flex;
-  flex-direction: column;
-  animation: scrollUp 12s linear infinite;
-}
+        /* فاصل رفيع تحت الخدمات */
+        .service-list:after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 1px;
+            background-color: rgba(255,255,255,0.1);
+            margin: 15px auto 0;
+        }
 
-.slider p {
-  margin: 0;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #22c55e;
-  font-weight: bold;
-}
+        .button-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-/* smooth loop */
-@keyframes scrollUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
+        /* تنسيق الأزرار الأساسي */
+        .action-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 15px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+        }
 
-/* DESCRIPTION */
-.desc {
-  color: #cbd5f5;
-  margin-bottom: 25px;
-}
+        .action-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
 
-/* BUTTONS */
-.btn {
-  display: block;
-  margin: 12px auto;
-  padding: 15px;
-  width: 260px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
+        .action-button i {
+            margin-left: 10px; /* المسافة بين الأيقونة والنص */
+            font-size: 22px;
+        }
 
-/* BUTTON COLORS */
-.call { background: linear-gradient(45deg, #2563eb, #1d4ed8); }
-.whatsapp { background: linear-gradient(45deg, #22c55e, #16a34a); }
-.work { background: linear-gradient(45deg, #3b82f6, #2563eb); }
-.yelp { background: linear-gradient(45deg, #dc2626, #991b1b); }
+        /* ألوان الأزرار المخصصة */
+        .btn-call {
+            background-color: #3b82f6; /* أزرق فاتح */
+        }
 
-/* HOVER */
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255,255,255,0.3);
-}
-</style>
+        .btn-whatsapp {
+            background-color: #22c55e; /* أخضر */
+        }
 
+        .btn-work {
+            background-color: #3b82f6; /* نفس أزرق الاتصال */
+        }
+
+        .btn-yelp {
+            background-color: #ef4444; /* أحمر */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* تنسيق خاص لأيقونة Yelp والنجوم */
+        .btn-yelp .yelp-icon {
+            color: #fff;
+            font-size: 24px;
+            margin-right: 5px;
+        }
+
+        .btn-yelp .yelp-stars {
+            color: #fbbf24; /* لون النجوم الذهبي */
+            font-size: 14px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
-
 <body>
+    <div class="site-container">
+        <div class="content-area">
+            <h1 class="site-title">Databasestore</h1>
+            
+            <ul class="service-list">
+                <li>Professional TV Mounting</li>
+                <li>Expert Furniture Assembly</li>
+                <li>Fast & Clean Work</li>
+                <li>Trusted Service</li>
+            </ul>
 
-<div class="frame">
-  <div class="container">
-
-    <h1>Databasestore</h1>
-
-    <!-- SLIDER -->
-    <div class="slider">
-      <div class="slider-track">
-        <p>Professional TV Mounting</p>
-        <p>Expert Furniture Assembly</p>
-        <p>Fast & Clean Work</p>
-        <p>Trusted Service</p>
-
-        <!-- repeat for smooth loop -->
-        <p>Professional TV Mounting</p>
-        <p>Expert Furniture Assembly</p>
-        <p>Fast & Clean Work</p>
-        <p>Trusted Service</p>
-      </div>
+            <div class="button-group">
+                <a href="tel:+123456789" class="action-button btn-call">
+                    <i class="fas fa-phone"></i>
+                    Call Me
+                </a>
+                
+                <a href="https://wa.me/123456789" class="action-button btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+                
+                <a href="#work" class="action-button btn-work">
+                    <i class="fas fa-images"></i>
+                    View My Work
+                </a>
+                
+                <a href="#yelp" class="action-button btn-yelp">
+                    <i class="fab fa-yelp yelp-icon"></i>
+                    <span class="yelp-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </span>
+                    Check My Yelp Reviews
+                </a>
+            </div>
+        </div>
     </div>
-
-    <div class="desc">
-      TV Mounting • Furniture Assembly • General Mounting • Home Services
-    </div>
-
-    <a class="btn call" href="tel:+12052018096">📞 Call Me</a>
-    <a class="btn whatsapp" href="https://wa.me/17065817415">💬 WhatsApp</a>
-    <a class="btn work" href="portfolio.html">🖼 View My Work</a>
-    <a class="btn yelp" href="https://biz.yelp.com/biz_info/FEl_QlZjSqA6QgZeCGW0xA">⭐ Check My Yelp Reviews</a>
-
-  </div>
-</div>
-
 </body>
 </html>
